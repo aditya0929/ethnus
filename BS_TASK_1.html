@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush Pal Task 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #00C0F3;
+            color: black;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar {
+            background-color: gray;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+        }
+        .navbar ul li {
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .navbar ul li:hover {
+            background-color: darkgray;
+        }
+        .container {
+            display: flex;
+            height: calc(100vh - 100px);
+        }
+        .content {
+            width: 80%;
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #4a4a4a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Ethnus layout</div>
+
+    <div class="navbar">
+        <ul>
+            <li>HOME</li>
+            <li>MENU</li>
+            <li>ABOUT</li>
+            <li>CONTACT</li>
+        </ul>
+        <ul>
+            <li>SIGNUP</li>
+            <li>LOGIN</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <p>Write your content here</p>
+        </div>
+        <div class="sidebar">
+            <p>This is</p>
+        </div>
+    </div>
+
+</body>
+</html>

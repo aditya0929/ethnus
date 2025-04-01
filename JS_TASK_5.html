@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TASK 5</title>
+    <style>
+        .error { color: red; font-size: 14px; }
+        .invalid { border: 2px solid red; }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+
+            let name = document.getElementById("name");
+            let email = document.getElementById("email");
+            let website = document.getElementById("website");
+            let message = document.getElementById("message");
+
+            let nameError = document.getElementById("nameError");
+            let emailError = document.getElementById("emailError");
+            let websiteError = document.getElementById("websiteError");
+            let messageError = document.getElementById("messageError");
+
+            // Reset previous errors
+            nameError.innerText = emailError.innerText = websiteError.innerText = messageError.innerText = "";
+            name.classList.remove("invalid");
+            email.classList.remove("invalid");
+            website.classList.remove("invalid");
+            message.classList.remove("invalid");
+
+            // Name validation
+            if (name.value.trim() === "") {
+                nameError.innerText = "This field is required";
+                name.classList.add("invalid");
+                isValid = false;
+            }
+
+            // Email validation
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email.value)) {
+                emailError.innerText = "A valid email address is required";
+                email.classList.add("invalid");
+                isValid = false;
+            }
+
+            // Website validation
+            let websitePattern = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\S*)?$/;
+            if (!websitePattern.test(website.value)) {
+                websiteError.innerText = "A valid URL is required";
+                website.classList.add("invalid");
+                isValid = false;
+            }
+
+            // Message validation
+            if (message.value.trim() === "") {
+                messageError.innerText = "This field is required";
+                message.classList.add("invalid");
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm(event)">
+        <label>Name:</label>
+        <input type="text" id="name">
+        <span id="nameError" class="error"></span><br><br>
+
+        <label>Email:</label>
+        <input type="text" id="email">
+        <span id="emailError" class="error"></span><br><br>
+
+        <label>Website:</label>
+        <input type="text" id="website">
+        <span id="websiteError" class="error"></span><br><br>
+
+        <label>Message:</label>
+        <textarea id="message"></textarea>
+        <span id="messageError" class="error"></span><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

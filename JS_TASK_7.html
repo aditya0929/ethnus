@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 7</title>
+    <style>
+        body {
+            text-align: start;
+            font-family: Arial, sans-serif;
+        }
+
+        #train {
+            position: relative;
+            top: 20px;
+            left: 0;
+            width: 200px;
+            transition: left 0.1s linear;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: navy;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="train" src="https://i.ytimg.com/vi/Taf5Ns90LNM/maxresdefault.jpg" alt="Train">
+    <p class="heading">Click the following buttons to handle animation</p>
+    <div class="button-container">
+        <button onclick="startTrain()">Start</button>
+        <button onclick="stopTrain()">Stop</button>
+    </div>
+
+    <script>
+        let train = document.getElementById("train");
+        let position = 0;
+        let interval;
+
+        function startTrain() {
+            clearInterval(interval); 
+            interval = setInterval(() => {
+                if (position < window.innerWidth - 200) {
+                    position += 5; 
+                    train.style.left = position + "px";
+                } else {
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+
+        function stopTrain() {
+            clearInterval(interval); 
+        }
+    </script>
+
+</body>
+</html>
